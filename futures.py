@@ -2,6 +2,7 @@
 import requests
 import csv
 from bs4 import BeautifulSoup
+#==============抓取期貨保證金倍率資料===============
 response = requests.get(
     "https://www.taifex.com.tw/cht/5/stockMargining")
 soup = BeautifulSoup(response.text, "html.parser")
@@ -15,7 +16,7 @@ for tr in table_rows:
     output_rows.append(row)
 print(output_rows)
 
-
+#==============抓取期貨當天成交價===============
 response2 = requests.get(
     "https://histock.tw/stock/future.aspx")
 soup2 = BeautifulSoup(response2.text, "html.parser")
